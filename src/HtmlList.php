@@ -127,8 +127,9 @@ class HtmlList extends Collection
             ->mapWithKeys(function (HtmlListItem $htmlListItem) {
                 $key = $htmlListItem->getKey();
                 $label = $htmlListItem->getLabel();
+                $item = $htmlListItem->getHtmlItem();
 
-                return [$key => $label];
+                return [$item->getAttribute($key) => $item->getAttribute($label)];
             })
             ->all();
     }
