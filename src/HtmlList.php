@@ -25,6 +25,11 @@ class HtmlList extends Collection
     protected $callbackLabel;
 
     /**
+     * @var string|null
+     */
+    protected $model = null;
+
+    /**
      * @return string|null
      */
     public function getLabelEmpty(): ?string
@@ -100,6 +105,10 @@ class HtmlList extends Collection
     {
         return $this
             ->map(function (HtmlItem $htmlItem) {
+                if(!$this->model) {
+                    $this->model = get_class($htmlItem);
+                }
+
                 $htmlListItem = new HtmlListItem(
                     $this->getCallbackLabel()->__invoke($htmlItem),
                     $this->getCallbackKey()->__invoke($htmlItem)
@@ -109,10 +118,23 @@ class HtmlList extends Collection
 
                 return $htmlListItem;
             })
-            ->when($this->getLabelEmpty(), function (HtmlList $htmlList) {
-                $emptyHtmlListItem = new HtmlListItem($this->getLabelEmpty());
+            ->when($this->getLabelEmpty() !== null, function (HtmlList $htmlList) {
+                $emptyHtmlItem = new $this->model();
 
-                return $htmlList->prepend($emptyHtmlListItem);
+                $label = $this->getCallbackLabel()->__invoke($emptyHtmlItem);
+                $key = $this->getCallbackKey()->__invoke($emptyHtmlItem);
+
+                $emptyHtmlItem->setAttribute($label, $this->getLabelEmpty())
+                    ->setAttribute($key, null);
+
+                $emptyhtmlListItem = new HtmlListItem(
+                    $label,
+                    $key
+                );
+
+                $emptyhtmlListItem->setHtmlItem($emptyHtmlItem);
+
+                return $htmlList->prepend($emptyhtmlListItem);
             })
             ->toBase();
     }
