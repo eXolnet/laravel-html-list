@@ -101,8 +101,8 @@ class HtmlList extends Collection
         return $this
             ->map(function (HtmlItem $htmlItem) {
                 $htmlListItem = new HtmlListItem(
-                    $this->getCallbackLabel(),
-                    $this->getCallbackKey()
+                    $this->getCallbackLabel()->__invoke($htmlItem),
+                    $this->getCallbackKey()->__invoke($htmlItem)
                 );
 
                 $htmlListItem->setHtmlItem($htmlItem);
