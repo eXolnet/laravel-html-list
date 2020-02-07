@@ -118,7 +118,7 @@ class HtmlList extends Collection
 
                 return $htmlListItem;
             })
-            ->when($this->getLabelEmpty() !== null, function (HtmlList $htmlList) {
+            ->when($this->getLabelEmpty() !== null && $this->model, function (HtmlList $htmlList) {
                 $emptyHtmlItem = new $this->model();
 
                 $label = $this->getCallbackLabel()->__invoke($emptyHtmlItem);
