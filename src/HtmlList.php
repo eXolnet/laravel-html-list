@@ -127,14 +127,14 @@ class HtmlList extends Collection
                 $emptyHtmlItem->setAttribute($label, $this->getLabelEmpty())
                     ->setAttribute($key, null);
 
-                $emptyhtmlListItem = new HtmlListItem(
+                $emptyHtmlListItem = new HtmlListItem(
                     $label,
                     $key
                 );
 
-                $emptyhtmlListItem->setHtmlItem($emptyHtmlItem);
+                $emptyHtmlListItem->setHtmlItem($emptyHtmlItem);
 
-                return $htmlList->prepend($emptyhtmlListItem);
+                return $htmlList->prepend($emptyHtmlListItem);
             })
             ->toBase();
     }
