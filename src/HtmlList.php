@@ -105,7 +105,7 @@ class HtmlList extends Collection
     {
         return $this
             ->map(function (HtmlItem $htmlItem) {
-                if(!$this->model) {
+                if (! $this->model) {
                     $this->model = get_class($htmlItem);
                 }
 
