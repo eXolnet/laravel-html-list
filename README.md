@@ -2,7 +2,7 @@
 
 [![Latest Stable Version](https://poser.pugx.org/eXolnet/laravel-html-list/v/stable?format=flat-square)](https://packagist.org/packages/eXolnet/laravel-html-list)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
-[![Build Status](https://img.shields.io/travis/eXolnet/laravel-html-list/master.svg?style=flat-square)](https://travis-ci.org/eXolnet/laravel-html-list)
+[![Build Status](https://img.shields.io/github/workflow/status/eXolnet/laravel-html-list/tests?label=tests&style=flat-square)](https://github.com/eXolnet/laravel-html-list/actions?query=workflow%3Atests)
 [![Total Downloads](https://img.shields.io/packagist/dt/eXolnet/laravel-html-list.svg?style=flat-square)](https://packagist.org/packages/eXolnet/laravel-html-list)
 
 Facilitate HTML element creation from Laravel collections
