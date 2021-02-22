@@ -29,8 +29,9 @@ class HtmlListItem
      */
     public function __construct(string $label, $key = null)
     {
-        $this->label = $label;
-        $this->key = $key;
+        $this
+            ->setLabel($label)
+            ->setKey($key);
     }
 
     /**
