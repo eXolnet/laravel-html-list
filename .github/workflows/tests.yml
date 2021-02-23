@@ -48,7 +48,10 @@ jobs:
           composer update --${{ matrix.dependency-version }} --prefer-dist --no-interaction --no-suggest
 
       - name: Execute tests
-        run: composer test
+        run: composer test-coverage
+
+      - name: Coveralls GitHub Action
+        uses: coverallsapp/github-action@v1.1.2
 
       - name: Execute lint
         run: composer lint
