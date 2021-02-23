@@ -48,9 +48,8 @@ class HtmlItemTest extends UnitTest
         $item = new StaticMock();
 
         $item->htmlItemKey = 'foo';
-        $item->foo = 'bar';
 
-        $this->assertEquals('bar', $item->getHtmlItemKey());
+        $this->assertEquals('foo', $item->getHtmlItemKey());
     }
 
     /**
@@ -118,8 +117,7 @@ class HtmlItemTest extends UnitTest
         $item = new StaticMock();
 
         $item->htmlItemLabel = 'foo';
-        $item->foo = 'bar';
 
-        $this->assertEquals('bar', $item->getHtmlItemLabel());
+        $this->assertEquals('foo', $item->getHtmlItemLabel());
     }
 }

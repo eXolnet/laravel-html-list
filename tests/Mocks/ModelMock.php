@@ -9,7 +9,4 @@ use Illuminate\Database\Eloquent\Model;
 class ModelMock extends Model implements HtmlItem
 {
     use HtmlItemDefaults;
-
-    public $label = 'Default label';
-    public $id = 'id';
 }

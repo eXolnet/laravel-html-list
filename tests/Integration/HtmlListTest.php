@@ -65,8 +65,11 @@ class HtmlListTest extends TestCase
 
         $this->assertInstanceOf(HtmlListItem::class, $firstElement);
 
-        $this->assertEquals(1, $firstElement->getKey());
-        $this->assertEquals('foo', $firstElement->getLabel());
+        $this->assertEquals('foo', $firstElement->getKey());
+        $this->assertEquals('label', $firstElement->getLabel());
+
+        $this->assertEquals(1, $firstElement->getHtmlItem()->{$firstElement->getKey()});
+        $this->assertEquals('foo', $firstElement->getHtmlItem()->{$firstElement->getLabel()});
     }
 
     public function testBuildEmptyLabel()
@@ -94,20 +97,17 @@ class HtmlListTest extends TestCase
         $this->assertInstanceOf(HtmlListItem::class, $firstElement);
 
         $this->assertEquals('id', $firstElement->getKey());
-        $this->assertEquals('Default label', $firstElement->getLabel());
+        $this->assertEquals('label', $firstElement->getLabel());
 
         $this->assertEquals(null, $firstElement->getHtmlItem()['id']);
-        $this->assertEquals('Empty Label', $firstElement->getHtmlItem()['Default label']);
+        $this->assertEquals('Empty Label', $firstElement->getHtmlItem()['label']);
     }
 
     public function testBuildArray()
     {
         $item = new ModelMock();
-        $item->id = 'key';
+        $item->id = 1;
         $item->label = 'bar';
-
-        $item->key = 1;
-        $item->bar = 'label';
 
         $collection = new Collection([
             $item,
@@ -118,15 +118,12 @@ class HtmlListTest extends TestCase
 
         $buildArrayHtmlList = $htmlList->buildArray();
 
-        $this->assertEquals([1 => 'label'], $buildArrayHtmlList);
+        $this->assertEquals([1 => 'bar'], $buildArrayHtmlList);
     }
 
     public function testHtmlListCallbacks()
     {
         $item = new ModelMock();
-        $item->id = 'test';
-        $item->label = 'testbar';
-
         $item->key = 1;
         $item->bar = 'label';
 
@@ -148,5 +145,42 @@ class HtmlListTest extends TestCase
         $buildArrayHtmlList = $htmlList->buildArray();
 
         $this->assertEquals([1 => 'label'], $buildArrayHtmlList);
+    }
+
+    public function testSelect()
+    {
+        $item = new ModelMock();
+        $item->label = 'AAAAA';
+        $item->id = 9999;
+
+        $collection = new Collection([
+            $item,
+        ]);
+
+        /** @var HtmlList $actual */
+        $htmlList = $collection->toHtmlList();
+
+        $select = $htmlList->select('select');
+
+        $this->assertEquals('<select name="select"><option value="9999">AAAAA</option></select>', $select);
+    }
+
+    public function testSelectWithEmptyLabel()
+    {
+        $item = new ModelMock();
+        $item->label = 'Second element label';
+        $item->id = 9999;
+
+        $collection = new Collection([
+            $item,
+        ]);
+
+        /** @var HtmlList $actual */
+        $htmlList = $collection->toHtmlList();
+        $htmlList->allowEmpty('Empty Label');
+
+        $select = $htmlList->select('select');
+
+        $this->assertEquals('<select name="select"><option value="" selected="selected">Empty Label</option><option value="9999">Second element label</option></select>', $select);
     }
 }
