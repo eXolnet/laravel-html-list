@@ -181,6 +181,9 @@ class HtmlListTest extends TestCase
 
         $select = $htmlList->select('select');
 
-        $this->assertEquals('<select name="select"><option value="" selected="selected">Empty Label</option><option value="9999">Second element label</option></select>', $select);
+        $this->assertEquals(
+            '<select name="select"><option value="" selected="selected">Empty Label</option><option value="9999">Second element label</option></select>', // phpcs:ignore
+            $select
+        );
     }
 }
