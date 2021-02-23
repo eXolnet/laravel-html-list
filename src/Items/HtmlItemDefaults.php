@@ -25,7 +25,7 @@ trait HtmlItemDefaults
      */
     public function getHtmlItemKey()
     {
-        return $this->{$this->getHtmlItemKeyName()};
+        return $this->getHtmlItemKeyName();
     }
 
     /**
@@ -41,6 +41,6 @@ trait HtmlItemDefaults
      */
     public function getHtmlItemLabel(): string
     {
-        return $this->{$this->getHtmlItemLabelName()};
+        return $this->getHtmlItemLabelName();
     }
 }
