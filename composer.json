@@ -23,7 +23,7 @@
     "require": {
         "php": "^7.3|^8.0",
         "illuminate/support": "^8.0",
-        "laravelcollective/html": "^6.0"
+        "laravelcollective/html": "^6.2.1"
     },
     "require-dev": {
         "exolnet/phpcs-config": "^2.0",
