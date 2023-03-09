@@ -1,7 +1,7 @@
 # laravel-html-list
 
 [![Latest Stable Version](https://poser.pugx.org/eXolnet/laravel-html-list/v/stable?format=flat-square)](https://packagist.org/packages/eXolnet/laravel-html-list)
-[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
+[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
 [![Build Status](https://img.shields.io/github/workflow/status/eXolnet/laravel-html-list/tests?label=tests&style=flat-square)](https://github.com/eXolnet/laravel-html-list/actions?query=workflow%3Atests)
 [![Total Downloads](https://img.shields.io/packagist/dt/eXolnet/laravel-html-list.svg?style=flat-square)](https://packagist.org/packages/eXolnet/laravel-html-list)
 
