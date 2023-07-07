@@ -2,9 +2,9 @@
 
 namespace Exolnet\HtmlList;
 
-use Collective\Html\FormFacade;
 use Exolnet\HtmlList\Items\HtmlItem;
-use Illuminate\Support\HtmlString;
+use Spatie\Html\Elements\Input;
+use Spatie\Html\Facades\Html;
 
 class HtmlListItem
 {
@@ -95,21 +95,21 @@ class HtmlListItem
      * @param string $name
      * @param bool $checked
      * @param array $options
-     * @return \Illuminate\Support\HtmlString
+     * @return \Spatie\Html\Elements\Input
      */
-    public function checkbox(string $name, ?bool $checked = null, array $options = []): HtmlString
+    public function checkbox(string $name, ?bool $checked = null, array $options = []): Input
     {
-        return FormFacade::checkbox($name, $this->getKey(), $checked, $options);
+        return Html::checkbox($name, $checked, $this->getKey())->attributes($options);
     }
 
     /**
      * @param string $name
      * @param bool $checked
      * @param array $options
-     * @return \Illuminate\Support\HtmlString
+     * @return \Spatie\Html\Elements\Input
      */
-    public function radio(string $name, ?bool $checked = null, array $options = []): HtmlString
+    public function radio(string $name, ?bool $checked = null, array $options = []): Input
     {
-        return FormFacade::radio($name, $this->getKey(), $checked, $options);
+        return Html::radio($name, $checked, $this->getKey())->attributes($options);
     }
 }

@@ -40,10 +40,6 @@ jobs:
           extensions: json, dom, curl, libxml, mbstring
           coverage: none
 
-      - name: Contraint HTML Collective on PHP 8
-        if: ${{matrix.php == '8.0'}}
-        run: composer require "laravelcollective/html:^6.2.1" --no-interaction --no-update
-
       - name: Install dependencies
         run: |
           composer require "laravel/framework:${{ matrix.laravel }}" "orchestra/testbench:${{ matrix.testbench }}" --no-interaction --no-update

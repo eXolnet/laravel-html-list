@@ -2,10 +2,10 @@
 
 namespace Exolnet\HtmlList;
 
-use Collective\Html\FormFacade;
 use Exolnet\HtmlList\Items\HtmlItem;
 use Illuminate\Support\Collection;
-use Illuminate\Support\HtmlString;
+use Spatie\Html\Elements\Select;
+use Spatie\Html\Facades\Html;
 
 class HtmlList extends Collection
 {
@@ -159,25 +159,10 @@ class HtmlList extends Collection
     /**
      * @param string $name
      * @param mixed $selected
-     * @param array $selectAttributes
-     * @param array $optionsAttributes
-     * @param array $optgroupsAttributes
-     * @return \Illuminate\Support\HtmlString
+     * @return \Spatie\Html\Elements\Select
      */
-    public function select(
-        string $name,
-        $selected = null,
-        array $selectAttributes = [],
-        array $optionsAttributes = [],
-        array $optgroupsAttributes = []
-    ): HtmlString {
-        return FormFacade::select(
-            $name,
-            $this->buildArray(),
-            $selected,
-            $selectAttributes,
-            $optionsAttributes,
-            $optgroupsAttributes
-        );
+    public function select(string $name, $selected = null): Select
+    {
+        return Html::select($name, $this->buildArray(), $selected);
     }
 }
