@@ -5,7 +5,7 @@ namespace Exolnet\HtmlList\Tests\Unit;
 use Exolnet\HtmlList\Tests\Mocks\ModelMock;
 use Exolnet\HtmlList\Tests\Mocks\StaticMock;
 
-class HtmlItemTest extends UnitTest
+class HtmlItemTest extends UnitTestCase
 {
     /**
      * @return void
