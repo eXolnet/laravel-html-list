@@ -10,7 +10,7 @@ class HtmlListItemTest extends TestCase
     {
         $item = new HtmlListItem('Checkbox', 999);
 
-        $checkbox = $item->checkbox('checkbox')->toHtml();
+        $checkbox = $item->htmlCheckbox('checkbox')->toHtml();
 
         $this->assertEquals('<input type="checkbox" name="checkbox" id="checkbox" value="999">', $checkbox);
     }
@@ -19,7 +19,7 @@ class HtmlListItemTest extends TestCase
     {
         $item = new HtmlListItem('Radio', 999);
 
-        $radio = $item->radio('radio')->toHtml();
+        $radio = $item->htmlRadio('radio')->toHtml();
 
         $this->assertEquals('<input type="radio" name="radio" id="radio_999" value="999">', $radio);
     }

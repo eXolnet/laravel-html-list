@@ -97,7 +97,7 @@ class HtmlListItem
      * @param array $options
      * @return \Spatie\Html\Elements\Input
      */
-    public function checkbox(string $name, ?bool $checked = null, array $options = []): Input
+    public function htmlCheckbox(string $name, ?bool $checked = null, array $options = []): Input
     {
         return Html::checkbox($name, $checked, $this->getKey())->attributes($options);
     }
@@ -108,7 +108,7 @@ class HtmlListItem
      * @param array $options
      * @return \Spatie\Html\Elements\Input
      */
-    public function radio(string $name, ?bool $checked = null, array $options = []): Input
+    public function htmlRadio(string $name, ?bool $checked = null, array $options = []): Input
     {
         return Html::radio($name, $checked, $this->getKey())->attributes($options);
     }

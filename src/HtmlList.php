@@ -161,7 +161,7 @@ class HtmlList extends Collection
      * @param mixed $selected
      * @return \Spatie\Html\Elements\Select
      */
-    public function select(string $name, $selected = null): Select
+    public function htmlSelect(string $name, $selected = null): Select
     {
         return Html::select($name, $this->buildArray(), $selected);
     }

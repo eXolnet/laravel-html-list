@@ -160,7 +160,7 @@ class HtmlListTest extends TestCase
         /** @var HtmlList $actual */
         $htmlList = $collection->toHtmlList();
 
-        $select = $htmlList->select('select')->toHtml();
+        $select = $htmlList->htmlSelect('select')->toHtml();
 
         $this->assertEquals('<select name="select" id="select"><option value="9999">AAAAA</option></select>', $select);
     }
@@ -179,7 +179,7 @@ class HtmlListTest extends TestCase
         $htmlList = $collection->toHtmlList();
         $htmlList->allowEmpty('Empty Label');
 
-        $select = $htmlList->select('select')->toHtml();
+        $select = $htmlList->htmlSelect('select')->toHtml();
 
         $this->assertEquals(
             '<select name="select" id="select"><option value>Empty Label</option><option value="9999">Second element label</option></select>', // phpcs:ignore
