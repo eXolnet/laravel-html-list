@@ -21,8 +21,8 @@
         }
     ],
     "require": {
-        "php": "^8.0",
-        "illuminate/support": "^9.0|^10.0",
+        "php": "^8.1",
+        "illuminate/support": "^10.0",
         "spatie/laravel-html": "^3.2"
     },
     "require-dev": {
